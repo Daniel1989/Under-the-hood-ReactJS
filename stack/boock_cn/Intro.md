@@ -5,7 +5,7 @@
 
 [![](../images/intro/all-page-stack-reconciler-25-scale.jpg)](../images/intro/all-page-stack-reconciler.svg)
 
-<em>简介 －0 模式图(可点击)</em>
+<em>简介 －0 模式图(点击看大图)</em>
 
 先花点时间看一下模式图。当然了，大体上流程图看起来有点复杂，但本质上，图片内容只描述了两个过程：挂载和更新。由于'卸载'在某种程度上就是挂载的反过程，我就跳过了卸载的内容，同时，我也简化了整个模式图。同时，模式图和代码没有百分百的匹配，这是因为一些重要代码就能描述了整个项目架构，这些代码大概占60%，也就是另外40%的代码在事实上不会有任务价值，所以，我也决定忽略这些代码以使得模式图看起来更简单。
 
@@ -14,18 +14,18 @@
 
 [![](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/modules-src-path.svg)](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/modules-src-path.svg)
 
-<em>简介 － 1模块颜色(可点击)</em>
+<em>简介 － 1模块颜色(点击看大图)</em>
 
 让我们结合模式图来分析下 **模块依赖关系**.
 
 [![](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/files-scheme.svg)](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/files-scheme.svg)
 
-<em>简介 － 2模块依赖(可点击)</em>
+<em>简介 － 2模块依赖(点击看大图)</em>
 正如你所知道的那样，React是**支持多环境**的。如手机（**ReactNative**）,游览器(**ReactDOM**)，还有**服务端渲染**和**ReactART**(使用react绘制矢量图)等等。所以，全部的代码其实是比模式图里展示的还要多。我们可以比较下，多环境支持是如何影响到模式图的。
 
 [![](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/modules-per-platform-scheme.svg)](https://rawgit.com/Bogdan-Lyashenko/Under-the-hood-ReactJS/7c2372e1/stack/images/intro/modules-per-platform-scheme.svg)
 
-<em>简介 － 3平台依赖（可点击）</em>
+<em>简介 － 3平台依赖（点击看大图）</em>
 
 上图中，你可以看到代码中哪些部分改变了，也就是说，改变的部分在不同平台有不同的实现。一个简单的列子，ReactEventListener，很显然，在不同的平台它的实现会不一样！技术上来说，正如你想的那样，这些平台依赖模块应该会以某种方式注入或连接到当前的逻辑过程流中，事实上，react里有很多这样的注入。我们决定都忽略他们以使得简化模式图。在代码中并没有特殊技巧去处理这些，只有标准的设计模式－－组合模式。
 
